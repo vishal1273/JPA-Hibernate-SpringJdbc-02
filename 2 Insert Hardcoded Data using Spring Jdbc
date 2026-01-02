@@ -1,0 +1,65 @@
+Step 1: Create JDBC Repository
+This class talks to the database.
+What it does
+•	Uses JdbcTemplate to execute SQL
+•	Runs an INSERT query
+Key points
+•	@Repository → marks DB layer
+•	JdbcTemplate → executes SQL
+•	update() → used for INSERT / UPDATE / DELETE
+@Repository
+public class CourseJdbcRepository {
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    private static final String INSERT_QUERY = """
+        INSERT INTO course (id, name, author)
+        VALUES (1, 'Learn AWS', 'in28minutes')
+    """;
+
+    public void insert() {
+        jdbcTemplate.update(INSERT_QUERY);
+    }
+}
+________________________________________
+Step 2: Run query at application startup
+Use CommandLineRunner.
+What it does
+•	Runs code when Spring Boot starts
+•	Calls the repository insert() method
+@Component
+public class CourseJdbcCommandLineRunner implements CommandLineRunner {
+
+    @Autowired
+    private CourseJdbcRepository repository;
+
+    @Override
+    public void run(String... args) {
+        repository.insert();
+    }
+}
+________________________________________
+Step 3: Common mistake (you faced this)
+❌ JdbcTemplate was null
+Why?
+You forgot @Autowired on JdbcTemplate.
+Fix
+@Autowired
+private JdbcTemplate jdbcTemplate;
+________________________________________
+Step 4: Verify in H2 Console
+1.	Open H2 console
+2.	Connect using JDBC URL
+3.	Run:
+SELECT * FROM course;
+✅ You will see:
+1 | Learn AWS | in28minutes
+________________________________________
+Summary (Very Simple)
+•	JdbcTemplate → executes SQL
+•	@Repository → DB layer
+•	CommandLineRunner → runs code at startup
+•	@Autowired → injects dependencies
+•	update() → runs INSERT/UPDATE/DELETE
+
