@@ -20,5 +20,8 @@ public class CourseJdbcCommandLinerunner implements CommandLineRunner {
         courseJdbcRepository.insert(new Course(5, "Learn Docker", "DevOps Team"));
 
         courseJdbcRepository.deleteById(1);
+        System.out.println(courseJdbcRepository.findById(2));
+        System.out.println(courseJdbcRepository.findById(3));
+        System.out.println(courseJdbcRepository.findById(4));
     }
 }
