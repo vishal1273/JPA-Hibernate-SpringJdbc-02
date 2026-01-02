@@ -1,0 +1,67 @@
+🔹 What does this method do?
+👉 Fetches one Course record from the database using its ID
+👉 Converts the database row into a Course Java object
+________________________________________
+🔹 Step-by-Step Explanation
+1️⃣ Method Signature
+public Course findById(long id)
+•	public → Accessible from anywhere
+•	Course → Returns a Course object
+•	id → Used to search the record in DB
+________________________________________
+2️⃣ jdbcTemplate.queryForObject(...)
+jdbcTemplate.queryForObject(...)
+•	Spring JDBC method
+•	Used when:
+o	Query returns exactly one row
+•	If:
+o	No row found → Exception
+o	More than one row → Exception
+________________________________________
+3️⃣ SELECT_QUERY
+SELECT_QUERY
+Usually defined as:
+private static final String SELECT_QUERY =
+        "SELECT * FROM course WHERE id = ?";
+•	? is a placeholder
+•	Value is provided later (id)
+________________________________________
+4️⃣ BeanPropertyRowMapper
+new BeanPropertyRowMapper<>(Course.class)
+📌 Most important part
+•	Converts ResultSet → Java Object
+•	Automatically maps:
+o	id → course.id
+o	name → course.name
+o	author → course.author
+Mapping Rule:
+DB Column	Java Field
+id	id
+name	name
+author	author
+✔ Field names must match column names
+________________________________________
+5️⃣ Passing id
+id
+•	Replaces the ? in SQL
+•	Executes:
+SELECT * FROM course WHERE id = 2;
+________________________________________
+🔹 What happens internally?
+1️⃣ SQL is executed
+2️⃣ DB returns one row
+3️⃣ ResultSet is created
+4️⃣ BeanPropertyRowMapper converts row → Course
+5️⃣ Course object is returned
+________________________________________
+🔹 Example Usage
+Course course = courseJdbcRepository.findById(2);
+System.out.println(course.getName());
+Output:
+Learn Spring Boot
+________________________________________
+🔹 Common Exceptions (Interview ⭐)
+Exception	Reason
+EmptyResultDataAccessException	No record found
+IncorrectResultSizeDataAccessException	More than one row
+
