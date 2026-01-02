@@ -1,0 +1,193 @@
+🔰 Beginner Level (Basics)
+1️⃣ What is Spring JDBC mainly used for?
+
+A. ORM mapping
+B. Database connection pooling
+C. Simplifying JDBC operations
+D. Creating REST APIs
+
+✅ Answer: C
+
+2️⃣ Which class is the core of Spring JDBC?
+
+A. DataSource
+B. JdbcTemplate
+C. EntityManager
+D. RowMapper
+
+✅ Answer: B
+
+3️⃣ Which dependency enables Spring JDBC?
+
+A. spring-boot-starter-data-jpa
+B. spring-boot-starter-jdbc
+C. spring-context
+D. spring-web
+
+✅ Answer: B
+
+4️⃣ Which method is used to execute INSERT, UPDATE, DELETE?
+
+A. query()
+B. execute()
+C. update()
+D. batchUpdate()
+
+✅ Answer: C
+
+5️⃣ Where is JdbcTemplate usually injected?
+
+A. Controller
+B. Repository
+C. Entity
+D. DTO
+
+✅ Answer: B
+
+🟡 Intermediate Level
+6️⃣ What does queryForObject() do?
+
+A. Returns multiple rows
+B. Returns exactly one row
+C. Returns boolean
+D. Executes DDL
+
+✅ Answer: B
+
+7️⃣ Which exception is thrown when queryForObject() finds no row?
+
+A. SQLException
+B. NullPointerException
+C. EmptyResultDataAccessException
+D. DataAccessException
+
+✅ Answer: C
+
+8️⃣ What is the role of RowMapper?
+
+A. Manage transactions
+B. Map ResultSet to Java object
+C. Execute SQL
+D. Validate queries
+
+✅ Answer: B
+
+9️⃣ Which RowMapper automatically maps columns to fields?
+
+A. CustomRowMapper
+B. SimpleRowMapper
+C. BeanPropertyRowMapper
+D. ResultSetMapper
+
+✅ Answer: C
+
+🔟 What is required for BeanPropertyRowMapper to work correctly?
+
+A. Getters only
+B. Field names must match column names
+C. Serializable interface
+D. @Entity annotation
+
+✅ Answer: B
+
+🟠 Advanced Level
+1️⃣1️⃣ What happens if queryForObject() returns multiple rows?
+
+A. Returns first row
+B. Returns null
+C. Throws exception
+D. Ignores extra rows
+
+✅ Answer: C
+
+1️⃣2️⃣ Which interface provides database connection?
+
+A. JdbcTemplate
+B. Connection
+C. DataSource
+D. DriverManager
+
+✅ Answer: C
+
+1️⃣3️⃣ Why is Spring JDBC better than plain JDBC?
+
+A. Faster execution
+B. Less boilerplate code
+C. No SQL required
+D. Automatic caching
+
+✅ Answer: B
+
+1️⃣4️⃣ Which annotation is used on DAO classes?
+
+A. @Component
+B. @Service
+C. @Repository
+D. @Controller
+
+✅ Answer: C
+
+1️⃣5️⃣ What is true about Spring JDBC transactions?
+
+A. Not supported
+B. Manual only
+C. Declarative using @Transactional
+D. Only XML based
+
+✅ Answer: C
+
+🔴 Scenario-Based / Tricky MCQs
+1️⃣6️⃣ You want to fetch multiple rows. Which method should you use?
+
+A. queryForObject()
+B. query()
+C. update()
+D. execute()
+
+✅ Answer: B
+
+1️⃣7️⃣ Which method is best for batch inserts?
+
+A. update()
+B. query()
+C. batchUpdate()
+D. execute()
+
+✅ Answer: C
+
+1️⃣8️⃣ What will JdbcTemplate return for a SELECT with no rows using query()?
+
+A. null
+B. Exception
+C. Empty List
+D. Optional.empty()
+
+✅ Answer: C
+
+1️⃣9️⃣ Which feature does Spring JDBC NOT provide?
+
+A. Exception translation
+B. Connection management
+C. ORM mapping
+D. Template-based coding
+
+✅ Answer: C
+
+2️⃣0️⃣ Which exception hierarchy does Spring JDBC use?
+
+A. SQLException
+B. RuntimeException
+C. DataAccessException
+D. IOException
+
+✅ Answer: C
+
+🎯 Interview Quick Revision
+Concept	Key Point
+JdbcTemplate	Core Spring JDBC class
+RowMapper	Maps ResultSet → Object
+query()	Multiple rows
+queryForObject()	Single row
+update()	Insert/Update/Delete
+@Repository	DAO layer
+DataSource	Connection provider
